@@ -61,7 +61,7 @@ const bookControler = {
     },
     async patch(req, res) {
         try {
-            const book = await Book.findByIdAndUpdate(req.params.id, req.body);
+            const book = await Book.findByIdAndUpdate(req.params.id, req.body,  {new: true});
             if (!book)
                 res.status(404).send("Not found");
             await book.save();
